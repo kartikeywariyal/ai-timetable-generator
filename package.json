@@ -1,0 +1,19 @@
+{
+  "name": "chronogen",
+  "version": "1.0.0",
+  "description": "AI-Powered Timetable Generator using Genetic Algorithm",
+  "scripts": {
+    "dev": "concurrently --kill-others-on-fail \"npm run dev --prefix backend\" \"npm start --prefix frontend\"",
+    "start": "node backend/server.js",
+    "build": "npm run build --prefix frontend",
+    "seed": "node backend/scripts/seedData.js",
+    "install:all": "npm install --prefix backend && npm install --prefix frontend",
+    "test:db": "node backend/check-db.js"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
