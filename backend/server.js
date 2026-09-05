@@ -9,6 +9,7 @@ app.use(cors({
   origin: [
     process.env.CLIENT_URL?.replace(/\/$/, ''),
     'http://localhost:3000',
+    'https://ai-timetable-generator-two.vercel.app',
     'https://chrono-siddhartha010.vercel.app',
     /\.vercel\.app$/,
     /\.netlify\.app$/

@@ -2,6 +2,7 @@
   "name": "chronogen",
   "version": "1.0.0",
   "description": "AI-Powered Timetable Generator using Genetic Algorithm",
+  "homepage": "https://ai-timetable-generator-two.vercel.app",
   "scripts": {
     "dev": "concurrently --kill-others-on-fail \"npm run dev --prefix backend\" \"npm start --prefix frontend\"",
     "start": "node backend/server.js",

@@ -1,5 +1,12 @@
 # ChronoGen — AI-Powered Timetable Generator
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://ai-timetable-generator-two.vercel.app/)
+[![Backend API](https://img.shields.io/badge/Backend%20API-Render-46E3B7?style=for-the-badge&logo=render)](https://chronogen-api-1bjy.onrender.com)
+[![Database](https://img.shields.io/badge/Database-MongoDB%20Atlas-47A248?style=for-the-badge&logo=mongodb)](https://www.mongodb.com/cloud/atlas)
+
+🚀 **Live Web App:** [https://ai-timetable-generator-two.vercel.app/](https://ai-timetable-generator-two.vercel.app/)  
+⚡ **Production Backend API:** [https://chronogen-api-1bjy.onrender.com](https://chronogen-api-1bjy.onrender.com)
+
 A full-stack web application that uses a **Genetic Algorithm** to generate optimized, conflict-free school/college timetables with advanced semester planning and holiday management.
 
 ## Problem Statement
