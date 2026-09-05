@@ -51,24 +51,33 @@ app.get('/api/health', (req, res) => {
     status: 'ok', 
     timestamp: new Date().toISOString(),
     message: 'ChronoGen Backend is running',
-    version: '1.0.0'
+    version: '1.0.0',
+    database: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected',
+    databaseHost: mongoose.connection.host || 'unknown'
   });
 });
 
-// Other API Routes
-app.use('/api/excel', require('./routes/excel'));
-app.use('/api/auth', require('./routes/auth'));
-app.use('/api/teachers', require('./routes/teachers'));
-app.use('/api/subjects', require('./routes/subjects'));
-app.use('/api/classes', require('./routes/classes'));
-app.use('/api/classrooms', require('./routes/classrooms'));
-app.use('/api/timeslots', require('./routes/timeslots'));
-app.use('/api/timetable', require('./routes/timetable'));
-app.use('/api/export', require('./routes/export'));
-app.use('/api/schedules', require('./routes/schedules'));
-app.use('/api/substitutes', require('./routes/substitutes'));
-app.use('/api/unavailability', require('./routes/unavailability'));
-app.use('/api/semesters', require('./routes/semesters'));
+// Register API Routes (supported with both /api/* and direct /* paths)
+const apiRoutes = [
+  ['/excel', require('./routes/excel')],
+  ['/auth', require('./routes/auth')],
+  ['/teachers', require('./routes/teachers')],
+  ['/subjects', require('./routes/subjects')],
+  ['/classes', require('./routes/classes')],
+  ['/classrooms', require('./routes/classrooms')],
+  ['/timeslots', require('./routes/timeslots')],
+  ['/timetable', require('./routes/timetable')],
+  ['/export', require('./routes/export')],
+  ['/schedules', require('./routes/schedules')],
+  ['/substitutes', require('./routes/substitutes')],
+  ['/unavailability', require('./routes/unavailability')],
+  ['/semesters', require('./routes/semesters')]
+];
+
+apiRoutes.forEach(([routePath, router]) => {
+  app.use(`/api${routePath}`, router);
+  app.use(routePath, router);
+});
 
 // Catch-all for unmatched routes
 app.use('*', (req, res) => {
